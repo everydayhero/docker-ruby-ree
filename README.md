@@ -24,3 +24,9 @@ ADD . /usr/src/app
 
 CMD ["/bin/bash"]
 ```
+
+Using this image just for deploys (via capistrano)? Don't forget to give the container access to your host's SSH agent.
+
+```sh
+docker run -rm -t -i -v $(dirname $SSH_AUTH_SOCK):$(dirname $SSH_AUTH_SOCK) -e SSH_AUTH_SOCK=$SSH_AUTH_SOCK everydayhero/ruby-ree /bin/bash
+```
