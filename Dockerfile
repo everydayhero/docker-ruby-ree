@@ -24,8 +24,15 @@ RUN apt-get update && apt-get install -y \
     libxml2-dev \
     libxslt-dev \
     libyaml-dev \
+    wkhtmltopdf \
+    xvfb \
     zlib1g-dev \
   && rm -rf /var/lib/apt/lists/*
+
+# create a shim to start a framebuffer to be used by wkhtmltopdf
+RUN echo 'xvfb-run --server-args="-screen 0, 1024x768x24" /usr/bin/wkhtmltopdf $*' > /usr/bin/wkhtmltopdf.sh
+RUN chmod a+rx /usr/bin/wkhtmltopdf.sh
+RUN ln -s /usr/bin/wkhtmltopdf.sh /usr/local/bin/wkhtmltopdf
 
 # skip installing gem documentation
 RUN echo 'gem: --no-rdoc --no-ri' >> "$HOME/.gemrc"
