@@ -46,4 +46,4 @@ RUN gem install bundler \
 # don't create ".bundle" in all our apps
 ENV BUNDLE_APP_CONFIG $GEM_HOME
 
-CMD [ "irb" ]
+CMD ["irb"]
