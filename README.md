@@ -2,7 +2,7 @@
 
 - It's based upon a trusted build [here](https://registry.hub.docker.com/u/kneip/ree-1.8.7-2012.02/).
 - This build is in-turn based upon the phusion-baseimage 0.9.9 image
-- The additional apt-packages are the same as those present on the buildpacks:jessie repo, to give us a fighting changce of installing gems.
+- The additional apt-packages are the same as those present on the buildpacks:jessie repo, to give us a fighting chance of installing gems.
 
 > Cool, but what's it for?
 
